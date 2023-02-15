@@ -1,2 +1,2 @@
 # Proyecto_Final_Frontend
-Proyecto Final Senpai Academy whit Gonzalo and Allison.
+Proyecto Final Senpai Academy with Gonzalo and Allison.
