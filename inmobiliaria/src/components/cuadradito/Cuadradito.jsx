@@ -7,7 +7,7 @@ function Cuadradito(props) {
       <h5>{props.propiedad.tipo}</h5>
       <h5>{props.propiedad.departamento}</h5>
       <h5>{props.propiedad.estado}</h5>
-      <h5>{props.propiedad.dormitorios}</h5>
+      <h5>Dormitorios: {props.propiedad.dormitorios}</h5>
       <h5>{props.propiedad.barrio}</h5>
       <h5>{props.propiedad.precio}</h5>
       <img
