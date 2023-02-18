@@ -1,5 +1,4 @@
-import "./App.css";
-import Header from "./components/header/Header";
+import Header from "./components/Header/Header";
 import Lista from "./components/lista/Lista";
 import Footer from "./components/footer/Footer";
 import { useEffect, useState } from "react";
