@@ -1,0 +1,52 @@
+header {
+  /* position: fixed; */
+  width: 100%;
+  height: 15vh;
+  background: rgb(96, 125, 139);
+  background: linear-gradient(
+    90deg,
+    rgba(96, 125, 139, 1) 0%,
+    rgba(103, 58, 183, 1) 100%
+  );
+  background-size: 300% 300%;
+  animation: gradient 10s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+    
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.image {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image > img {
+  width: 190px;
+  height: 90px;
+}
+
+.container-nav {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Oswald";
+  letter-spacing: 1px;
+}
