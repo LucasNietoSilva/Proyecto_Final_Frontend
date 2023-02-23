@@ -1,6 +1,6 @@
 import React from "react";
-import "./lista.css";
-import Cuadradito from "../cuadradito/Cuadradito";
+import "./main.css";
+import Cuadradito from "./cuadradito/Cuadradito";
 
 function Lista(props) {
   return (
