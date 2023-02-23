@@ -1,5 +1,5 @@
-import Header from "./components/Header/Header";
 import Lista from "./components/Main/Main";
+import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { useEffect, useState } from "react";
 import { getPublicaciones } from "./api/Rule_info";
