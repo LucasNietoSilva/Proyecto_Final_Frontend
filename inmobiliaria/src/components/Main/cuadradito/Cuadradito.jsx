@@ -2,6 +2,7 @@ import React from "react";
 import "./cuadradito.css";
 
 function Cuadradito(props) {
+
   return (
     <div className="card">
       <div className="img">
@@ -20,7 +21,7 @@ function Cuadradito(props) {
         <div className="info-right">
           <h5>Dormitorios: {props.propiedad.dormitorios}</h5>
           <h5>{props.propiedad.barrio}</h5>
-          <h5>{props.propiedad.precio}</h5>
+          <h5>U$D {props.propiedad.precio}</h5>
         </div>
       </div>
     </div>

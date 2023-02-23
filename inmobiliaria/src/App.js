@@ -1,11 +1,12 @@
 import Header from "./components/Header/Header";
-import Lista from "./components/lista/Lista";
-import Footer from "./components/footer/Footer";
+import Lista from "./components/Main/Main";
+import Footer from "./components/Footer/Footer";
 import { useEffect, useState } from "react";
 import { getPublicaciones } from "./api/Rule_info";
 
 function App() {
   const [arrayPublicaciones, setArrayPublicaciones] = useState([]);
+
   useEffect(() => {
     getPublicaciones().then((data) => {
       setArrayPublicaciones(data);
@@ -13,6 +14,7 @@ function App() {
       /*       setArrayOriginal(data); */
     });
   }, []);
+
   return (
     <>
       <Header />
