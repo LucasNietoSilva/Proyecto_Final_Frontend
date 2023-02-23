@@ -1,11 +1,25 @@
 import Header from "./components/Header/Header";
-import RegistrationForm from "./components/Registrer/RegistrationForm";
+import Lista from "./components/Main/Main";
+import Footer from "./components/Footer/Footer";
+import { useEffect, useState } from "react";
+import { getPublicaciones } from "./api/Rule_info";
 
 function App() {
+  const [arrayPublicaciones, setArrayPublicaciones] = useState([]);
+
+  useEffect(() => {
+    getPublicaciones().then((data) => {
+      setArrayPublicaciones(data);
+      console.log(data);
+      /*       setArrayOriginal(data); */
+    });
+  }, []);
+
   return (
     <>
-      {/* <Header /> */}
-      <RegistrationForm />
+      <Header />
+      <Lista listaPublicaciones={arrayPublicaciones} />
+      <Footer />
     </>
   );
 }
