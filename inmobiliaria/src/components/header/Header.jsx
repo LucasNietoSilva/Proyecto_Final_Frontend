@@ -6,16 +6,16 @@ function Header() {
     <>
       <header>
         <div className="image">
-          <img src="./imgs/logo.jpg" alt="logo" />
+          <img src="" alt="" />
         </div>
         <div>
-          <h1>INMOBILIARIA SENPAI</h1>
+          <h1>INMOBILIARIA</h1>
         </div>
         <div id="burger" onClick="enable()">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
         <div className="nav-div">
           <nav className="nav">
@@ -37,8 +37,9 @@ function Header() {
           </nav>
         </div>
         <div>
-          <button type="button">Registrarse</button>
-          <button type="button">Iniciar Sesion</button>
+            <button type="button">
+                Registrarse
+            </button>
         </div>
       </header>
     </>
