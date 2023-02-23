@@ -1,22 +1,45 @@
 import React from "react";
-import ButtonsHeader from "./Buttons/ButtonsHeader";
 import "./header.css";
-import Nav from "./nav_burger/Nav";
-import NavList from "./nav_list/NavList";
 
 function Header() {
   return (
     <>
       <header>
         <div className="image">
-          <img src="./imgs/LogoSenpai_Inm_Blanco.png" alt="logo" />
+          <img src="" alt="" />
         </div>
-        {/* <div className="container-nav">
-          <NavList />
-        </div> */}
-        <ButtonsHeader />
-        <div className="container-nav">
-          <Nav />
+        <div>
+          <h1>INMOBILIARIA</h1>
+        </div>
+        <div id="burger" onClick="enable()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div className="nav-div">
+          <nav className="nav">
+            <li>
+              <a href="#">Inicio</a>
+            </li>
+            <li>
+              <a href="#">Empresa</a>
+            </li>
+            <li>
+              <a href="#">Servicios</a>
+            </li>
+            <li>
+              <a href="#">Estudio</a>
+            </li>
+            <li>
+              <a href="#">Contacto</a>
+            </li>
+          </nav>
+        </div>
+        <div>
+            <button type="button">
+                Registrarse
+            </button>
         </div>
       </header>
     </>
