@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./registrationform.css";
+import Header from "../Header/Header";
+import { registrarUsuario } from "../../api/Rule_register";
 
 function RegistrationForm() {
-  
   const [firstName, setFirstName] = useState(null);
   const [lastName, setLastName] = useState(null);
   const [date, setDate] = useState(null);
@@ -36,11 +37,19 @@ function RegistrationForm() {
     }
   };
 
-  const submit = () => {
-    console.log(firstName, lastName, email, date, password, confirmPassword);
+  const register = async (e) => {
+    e.preventDefault();
+    await login({ email: username, password: password })
+      .then((response) => {
+        history("/home");
+      })
+      .catch((error) => {
+        alert(error);
+      });
   };
   return (
     <>
+      <Header />
       <div className="form">
         <div className="form-body">
           <div className="username">
@@ -149,7 +158,7 @@ function RegistrationForm() {
           </div>
         </div>
         <div class="footer">
-          <button onClick={() => submit()} type="submit" class="btn">
+          <button onClick={register} type="submit" class="btn">
             Registrarse
           </button>
         </div>
