@@ -22,16 +22,22 @@ function Nav() {
       </div>
       <nav className={`nav ${menu ? "nav-open" : ""}`} id="nav">
         <li>
-          <a href="#">Home</a>
+          <a href="#">Inicio</a>
         </li>
         <li>
-          <a href="#">Item 2</a>
+          <a href="#">Empresa</a>
         </li>
         <li>
-          <a href="#">Item 3 </a>
+          <a href="#">Servicios</a>
         </li>
         <li>
-          <a href="#">Item 4</a>
+          <a href="#">Estudio</a>
+        </li>
+        <li>
+          <a href="#">Contacto</a>
+        </li>
+        <li>
+          <a href="#">Administrar</a>
         </li>
       </nav>
     </>

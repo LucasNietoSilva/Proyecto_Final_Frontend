@@ -32,7 +32,7 @@ function Login() {
           <a href="#">¿Olvidaste tu contraseña?</a>
         </p>
         <p className="borde-blanco">
-          ¿Eres nuevo?
+          ¿Eres nuevo? 
           {/*         <Link to={sd}> */}
           <a href="#" id="registrate">
             ¡Regístrate!
