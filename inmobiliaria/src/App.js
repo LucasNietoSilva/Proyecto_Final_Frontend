@@ -1,6 +1,7 @@
 import Header from "./components/Header/Header";
-import Lista from "./components/Main/Main";
+import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
+import Register from "./components/Registrer/RegistrationForm.jsx"
 import { useEffect, useState } from "react";
 import { getPublicaciones } from "./api/Rule_info";
 
@@ -18,8 +19,9 @@ function App() {
   return (
     <>
       <Header />
-      <Lista listaPublicaciones={arrayPublicaciones} />
+      <Main listaPublicaciones={arrayPublicaciones} />
       <Footer />
+      <Register />
     </>
   );
 }

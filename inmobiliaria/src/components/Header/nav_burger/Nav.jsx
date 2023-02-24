@@ -22,16 +22,19 @@ function Nav() {
       </div>
       <nav className={`nav ${menu ? "nav-open" : ""}`} id="nav">
         <li>
-          <a href="#">Home</a>
+          <a href="#">INICIO</a>
         </li>
         <li>
-          <a href="#">Item 2</a>
+          <a href="https://senpaiacademy.com/" target="_blank">EMPRESA</a>
         </li>
         <li>
-          <a href="#">Item 3 </a>
+          <a href="https://senpaiacademy.com/blog/" target="_blank">SERVICIO</a>
         </li>
         <li>
-          <a href="#">Item 4</a>
+          <a href="#">ESTUDIO</a>
+        </li>
+        <li>
+          <a href="https://senpaiacademy.com/#contact" target="_blank">CONTACTO</a>
         </li>
       </nav>
     </>
