@@ -1,10 +1,26 @@
 import React, { useState } from "react";
 import "./login.css";
-import { Link } from "react-router-dom";
 import Header from "../Header/Header";
+import { login } from "../../api/Rule_auth";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const enter = useNavigate();
+
+  const validateAccess = async (e) => {
+    e.preventDefault();
+    await login({ email: email, password: password })
+      .then((response) => {
+        enter("/");
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
+
   return (
     <>
       <div className="fondo">
@@ -16,9 +32,11 @@ function Login() {
             className="holders"
             type="email"
             name="email"
+            value={email}
             pattern=".+@globex\.com"
             placeholder="Email"
             required
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             className="holders"
@@ -29,7 +47,11 @@ function Login() {
             required
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="button-login" type="submit">
+          <button
+            className="button-login"
+            type="submit"
+            onClick={validateAccess}
+          >
             Ingresar
           </button>
 

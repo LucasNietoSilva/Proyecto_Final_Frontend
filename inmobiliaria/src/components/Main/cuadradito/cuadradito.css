@@ -30,3 +30,8 @@
     gap: 100px;
 /*     justify-content: space-evenly */
 }
+
+.estado{
+    background-color: white;
+    position: absolute;
+}
