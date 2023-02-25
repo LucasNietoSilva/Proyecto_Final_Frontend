@@ -87,7 +87,7 @@ box-sizing: border-box;
     justify-content: center;
     align-items: center;
     margin: 0;
-    height: 100vh;
+    height: 80vh;
     width: 100vw;
     background: linear-gradient(rgb(109, 97, 182), rgb(111, 53, 176));
     flex-direction: column;

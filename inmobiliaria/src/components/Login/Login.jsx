@@ -3,6 +3,7 @@ import "./login.css";
 import Header from "../Header/Header";
 import { login } from "../../api/Rule_auth";
 import { useNavigate } from "react-router-dom";
+import Footer from "../Footer/Footer";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -66,6 +67,7 @@ function Login() {
           </p>
         </section>
       </div>
+      <Footer />
     </>
   );
 }
