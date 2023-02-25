@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./registrationform.css";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import { registrarUsuario } from "../../api/Rule_register";
 
 function RegistrationForm() {
-  
   const [firstName, setFirstName] = useState(null);
   const [lastName, setLastName] = useState(null);
   const [date, setDate] = useState(null);
@@ -36,16 +38,24 @@ function RegistrationForm() {
     }
   };
 
-  const submit = () => {
-    console.log(firstName, lastName, email, date, password, confirmPassword);
+  const register = async (e) => {
+    e.preventDefault();
+    await login({ email: username, password: password })
+      .then((response) => {
+        history("/home");
+      })
+      .catch((error) => {
+        alert(error);
+      });
   };
   return (
-    <>
+    <div className="div-tamaño">
+      <Header />
       <div className="form">
         <div className="form-body">
-          <div className="username">
+          <div className="username label-input">
             <label className="form__label" for="firstName">
-              Nombre
+              Nombre:
             </label>
             <input
               className="form__input"
@@ -55,9 +65,9 @@ function RegistrationForm() {
               id="firstName"
             />
           </div>
-          <div className="lastname">
+          <div className="lastname label-input">
             <label className="form__label" for="lastName">
-              Apellido
+              Apellido:
             </label>
             <input
               type="text"
@@ -68,9 +78,9 @@ function RegistrationForm() {
               className="form__input"
             />
           </div>
-          <div className="email">
+          <div className="email label-input">
             <label className="form__label" for="email">
-              Email
+              Email:
             </label>
             <input
               type="email"
@@ -80,21 +90,21 @@ function RegistrationForm() {
               className="form__input"
             />
           </div>
-          <div className="date">
+          <div className="date label-input">
             <label className="form__label" for="date">
-              Fecha de Nacimiento
+              Fecha de Nacimiento:
             </label>
             <input
               type="date"
               value={date}
               onChange={(e) => InputChange(e)}
               id="date"
-              className="form__input"
+              className="form__input fecha"
             />
           </div>
-          <div className="departamento">
+          <div className="departamento label-input">
             <label className="form__label" for="departamento">
-              Departamento
+              Departamento:
             </label>
             <select
               value={departamento}
@@ -123,9 +133,9 @@ function RegistrationForm() {
               <option value="treintaytres">Treinta y Tres</option>
             </select>
           </div>
-          <div className="password">
+          <div className="password label-input">
             <label className="form__label" for="password">
-              Contraseña
+              Contraseña:
             </label>
             <input
               className="form__input"
@@ -135,9 +145,9 @@ function RegistrationForm() {
               id="password"
             />
           </div>
-          <div className="confirm-password">
+          <div className="confirm-password label-input">
             <label className="form__label" for="confirmPassword">
-              Confirmar Contraseña{" "}
+              Confirmar contraseña:{" "}
             </label>
             <input
               className="form__input"
@@ -149,12 +159,13 @@ function RegistrationForm() {
           </div>
         </div>
         <div class="footer">
-          <button onClick={() => submit()} type="submit" class="btn">
+          <button onClick={register} type="submit" class="btn">
             Registrarse
           </button>
         </div>
       </div>
-    </>
+      <Footer/>
+    </div>
   );
 }
 
