@@ -21,7 +21,6 @@ function App() {
       <Header />
       <Lista listaPublicaciones={arrayPublicaciones} />
       <Footer />
-      <Register />
     </>
   );
 }
