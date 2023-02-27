@@ -1,5 +1,5 @@
+import Lista from "./components/Main/Main";
 import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
 import Register from "./components/Registrer/RegistrationForm.jsx"
 import { useEffect, useState } from "react";
@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <Header />
-      <Main listaPublicaciones={arrayPublicaciones} />
+      <Lista listaPublicaciones={arrayPublicaciones} />
       <Footer />
       <Register />
     </>
