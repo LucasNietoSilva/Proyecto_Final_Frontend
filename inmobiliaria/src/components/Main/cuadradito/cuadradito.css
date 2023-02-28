@@ -37,6 +37,13 @@
 }
 
 .estado{
-    background-color: white;
+    padding: 3px 5px;
+    color: #FFFF;
+    border-radius: 5px;
+    background-color: #94618B;
     position: absolute;
+    font-family: "Oswald";
+    font-size: 18px;
+    margin-top: 5px;
+    margin-left: 5px;
 }

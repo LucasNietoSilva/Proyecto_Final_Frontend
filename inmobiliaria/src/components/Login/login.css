@@ -89,6 +89,6 @@ box-sizing: border-box;
     margin: 0;
     height: 80vh;
     width: 100vw;
-    background: linear-gradient(rgb(109, 97, 182), rgb(111, 53, 176));
+    background: linear-gradient(rgb(94, 81, 175),rgb(122, 88, 162));
     flex-direction: column;
 }

@@ -1,11 +1,11 @@
 import API from "./Rule_API";
 //consume la info para enviar al front
 
-export const registrarUsuario = async () => {
-  let url = "/api/publicaciones";
-  return await API.post(url)
+export const registrarUsuario = async (body) => {
+  let url = "/auth/register";
+  return await API.post(url, body)
     .then((response) => {
-      console.log(response);
+      console.log(response.data);
       return response.data;
     })
     .catch((error) => {
