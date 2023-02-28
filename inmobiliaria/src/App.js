@@ -10,7 +10,6 @@ function App() {
   useEffect(() => {
     getPublicaciones().then((data) => {
       setArrayPublicaciones(data);
-      console.log(data);
       /*       setArrayOriginal(data); */
     });
   }, []);
@@ -20,7 +19,6 @@ function App() {
       <Header />
       <Lista listaPublicaciones={arrayPublicaciones} />
       <Footer />
-      
     </>
   );
 }

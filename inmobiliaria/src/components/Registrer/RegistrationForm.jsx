@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./registrationform.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import { useNavigate } from "react-router-dom";
 import { registrarUsuario } from "../../api/Rule_register";
 
 function RegistrationForm() {
@@ -12,6 +13,11 @@ function RegistrationForm() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
+
+  const captureSelect = (e) => {
+    setDepartamento(e.target.value);
+    console.log(e.target.value);
+  };
 
   const InputChange = (e) => {
     const { id, value } = e.target;
@@ -38,16 +44,26 @@ function RegistrationForm() {
     }
   };
 
+  const navHome = useNavigate();
+
   const register = async (e) => {
     e.preventDefault();
-    await login({ email: username, password: password })
+    await registrarUsuario({
+      email: email,
+      password: password,
+      nombre: firstName,
+      apellido: lastName,
+      fecha_nacimiento: date,
+      departamento: departamento,
+    })
       .then((response) => {
-        history("/home");
+        navHome("/");
       })
       .catch((error) => {
         alert(error);
       });
   };
+
   return (
     <div className="div-tamaño">
       <Header />
@@ -108,29 +124,29 @@ function RegistrationForm() {
             </label>
             <select
               value={departamento}
-              onChange={(e) => InputChange(e)}
+              onChange={captureSelect}
               name="departamentos"
               id="dep"
             >
-              <option value="artigas">Artigas</option>
-              <option value="canelones">Canelones</option>
-              <option value="cerroLargo">Cerro Largo</option>
-              <option value="colonia">Colonia</option>
-              <option value="durazno">Durazno</option>
-              <option value="flores">Flores</option>
-              <option value="florida">Florida</option>
-              <option value="lavalleja">Lavalleja</option>
-              <option value="maldonado">Maldonado</option>
-              <option value="montevideo">Montevideo</option>
-              <option value="paysandu">Paysandú</option>
-              <option value="rionegro">Río Negro</option>
-              <option value="rivera">Rivera</option>
-              <option value="rocha">Rocha</option>
-              <option value="salto">Salto</option>
-              <option value="sanjose">San José</option>
-              <option value="soriano">Soriano</option>
-              <option value="tacuarembo">Tacuarembó</option>
-              <option value="treintaytres">Treinta y Tres</option>
+              <option value="Artigas">Artigas</option>
+              <option value="Canelones">Canelones</option>
+              <option value="Cerro Largo">Cerro Largo</option>
+              <option value="Colonia">Colonia</option>
+              <option value="Durazno">Durazno</option>
+              <option value="Flores">Flores</option>
+              <option value="Florida">Florida</option>
+              <option value="Lavalleja">Lavalleja</option>
+              <option value="Maldonado">Maldonado</option>
+              <option value="Montevideo">Montevideo</option>
+              <option value="Paysandu">Paysandú</option>
+              <option value="Rio Negro">Río Negro</option>
+              <option value="Rivera">Rivera</option>
+              <option value="Rocha">Rocha</option>
+              <option value="Salto">Salto</option>
+              <option value="San Jose">San José</option>
+              <option value="Soriano">Soriano</option>
+              <option value="Tacuarembo">Tacuarembó</option>
+              <option value="Treinta y Tres">Treinta y Tres</option>
             </select>
           </div>
           <div className="password label-input">
@@ -164,7 +180,7 @@ function RegistrationForm() {
           </button>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
