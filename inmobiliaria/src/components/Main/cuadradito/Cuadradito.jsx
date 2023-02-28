@@ -2,10 +2,21 @@ import React from "react";
 import "./cuadradito.css";
 
 function Cuadradito(props) {
+  const estado = () => {
+    if (props.propiedad.estado === "Alquiler") {
+      return "ALQUILA";
+    }
+    if (props.propiedad.estado === "Venta") {
+      return "EN VENTA";
+    } else {
+      return;
+    }
+  };
 
   return (
     <div className="card">
       <div className="img">
+        <div className="estado">{estado(props.propiedad.estado)}</div>
         <img
           className="imagenPub"
           src={`./imgs/${props.propiedad.imagen}`}
@@ -21,7 +32,7 @@ function Cuadradito(props) {
         <div className="info-right">
           <h5>Dormitorios: {props.propiedad.dormitorios}</h5>
           <h5>{props.propiedad.barrio}</h5>
-          <h5>U$D {props.propiedad.precio}</h5>
+          <h5>USD {props.propiedad.precio}</h5>
         </div>
       </div>
     </div>

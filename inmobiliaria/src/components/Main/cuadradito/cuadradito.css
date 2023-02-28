@@ -7,6 +7,8 @@
     display:flex;
     flex-direction: column;
     align-items: center;
+    background: #f6f0fa;
+    padding: 5px;
 }
 
 .card:hover {
@@ -21,7 +23,10 @@
 
 .imagenPub{
     height: 200px;
-    width: 275px;
+    width: 290px;
+    border-radius: 5px;
+    /* border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px; */
 }
 
 .cont-info{
@@ -29,4 +34,9 @@
     flex-direction: row;
     gap: 100px;
 /*     justify-content: space-evenly */
+}
+
+.estado{
+    background-color: white;
+    position: absolute;
 }
