@@ -16,6 +16,8 @@ function App() {
     });
   }, []);
 
+  
+
   //hacer un nuevo arreglo con propiedades de elementos de un arreglo, y luego filtrarlo eliminado los elementos repetidos:
   const filterDepartamentos = arrayPublicaciones.map(function (item) {
     return item.departamento;
@@ -37,6 +39,8 @@ function App() {
   const arrayEstados = filterEstados.filter((item, index) => {
     return filterEstados.indexOf(item) === index;
   });
+
+ 
 
   return (
     <>

@@ -4,70 +4,126 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { useNavigate } from "react-router-dom";
 import { registrarUsuario } from "../../api/Rule_register";
+import { toast } from "react-toastify";
 
-function RegistrationForm() {
-  const [firstName, setFirstName] = useState(null);
-  const [lastName, setLastName] = useState(null);
-  const [date, setDate] = useState(null);
-  const [departamento, setDepartamento] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
-  const [confirmPassword, setConfirmPassword] = useState(null);
+// function RegistrationForm() {
+//   const [firstName, setFirstName] = useState(null);
+//   const [lastName, setLastName] = useState(null);
+//   const [date, setDate] = useState(null);
+//   const [departamento, setDepartamento] = useState(null);
+//   const [email, setEmail] = useState(null);
+//   const [password, setPassword] = useState(null);
+//   const [confirmPassword, setConfirmPassword] = useState(null);
+
+//   const InputChange = (e) => {
+//     const { id, value } = e.target;
+//     if (id === "firstName") {
+//       setFirstName(value);
+//     }
+//     if (id === "lastName") {
+//       setLastName(value);
+//     }
+//     if (id === "email") {
+//       setEmail(value);
+//     }
+//     if (id === "date") {
+//       setDate(value);
+//     }
+//     if (id === "departamento") {
+//       setDepartamento(value);
+//     }
+//     if (id === "password") {
+//       setPassword(value);
+//     }
+//     if (id === "confirmPassword") {
+//       setConfirmPassword(value);
+//     }
+//   };
+
+// const navHome = useNavigate();
+
+// const register = async (e) => {
+//   e.preventDefault();
+//   await registrarUsuario({
+//     email: email,
+//     password: password,
+//     nombre: firstName,
+//     apellido: lastName,
+//     fecha_nacimiento: date,
+//     departamento: departamento,
+//   })
+//     .then((response) => {
+//       navHome("/");
+//     })
+//     .catch((error) => {
+//       alert(error);
+//     });
+// };
+
+const RegistrationForm = ({ setAuth }) => {
+
+  
+
+  const [inputs, setInputs] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    date: "",
+    departamento: "",
+    password: "",
+    confirmPassword: ""
+  });
 
   const captureSelect = (e) => {
     setDepartamento(e.target.value);
     console.log(e.target.value);
   };
 
-  const InputChange = (e) => {
-    const { id, value } = e.target;
-    if (id === "firstName") {
-      setFirstName(value);
-    }
-    if (id === "lastName") {
-      setLastName(value);
-    }
-    if (id === "email") {
-      setEmail(value);
-    }
-    if (id === "date") {
-      setDate(value);
-    }
-    if (id === "departamento") {
-      setDepartamento(value);
-    }
-    if (id === "password") {
-      setPassword(value);
-    }
-    if (id === "confirmPassword") {
-      setConfirmPassword(value);
-    }
+  const { firstName, lastName, email, date, password, confirmPassword } = inputs;
+
+  const onChange = (e) => {
+    setInputs({ ...inputs, [e.target.id]: e.target.value });
+    console.log(inputs);
   };
 
-  const navHome = useNavigate();
+  const [departamento, setDepartamento] = useState(null);
 
-  const register = async (e) => {
+  const onSubmitForm = async (e) => {
     e.preventDefault();
-    await registrarUsuario({
-      email: email,
-      password: password,
-      nombre: firstName,
-      apellido: lastName,
-      fecha_nacimiento: date,
-      departamento: departamento,
-    })
-      .then((response) => {
-        navHome("/");
-      })
-      .catch((error) => {
-        alert(error);
+
+    try {
+      const body = { firstName, lastName, email, date, departamento, password, confirmPassword };
+
+      const response = await fetch("http://localhost:3000/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
       });
+
+      const parseResponse = await response.json();
+
+      if (parseResponse.token) {
+        localStorage.setItem("token", parseResponse.token);
+
+        setAuth(true);
+        toast.success(
+          `Gracias por registrarte, ${parseResponse.name
+            .charAt(0)
+            .toUpperCase()}${parseResponse.name.substring(1)}!`
+        );
+      } else {
+        setAuth(false);
+        toast.error(parseResponse);
+      }
+    } catch (err) {
+      console.error(err.message);
+    }
   };
 
   return (
     <div className="div-tamaño">
       <Header />
-      <div className="form">
+      <form className="form" onSubmit={onSubmitForm}>
         <div className="form-body">
           <div className="username label-input">
             <label className="form__label" for="firstName">
@@ -77,7 +133,7 @@ function RegistrationForm() {
               className="form__input"
               type="text"
               value={firstName}
-              onChange={(e) => InputChange(e)}
+              onChange={e => onChange(e)}
               id="firstName"
             />
           </div>
@@ -87,9 +143,8 @@ function RegistrationForm() {
             </label>
             <input
               type="text"
-              name=""
               value={lastName}
-              onChange={(e) => InputChange(e)}
+              onChange={e => onChange(e)}
               id="lastName"
               className="form__input"
             />
@@ -101,7 +156,7 @@ function RegistrationForm() {
             <input
               type="email"
               value={email}
-              onChange={(e) => InputChange(e)}
+              onChange={e => onChange(e)}
               id="email"
               className="form__input"
             />
@@ -113,7 +168,7 @@ function RegistrationForm() {
             <input
               type="date"
               value={date}
-              onChange={(e) => InputChange(e)}
+              onChange={e => onChange(e)}
               id="date"
               className="form__input fecha"
             />
@@ -157,7 +212,7 @@ function RegistrationForm() {
               className="form__input"
               type="password"
               value={password}
-              onChange={(e) => InputChange(e)}
+              onChange={e => onChange(e)}
               id="password"
             />
           </div>
@@ -169,20 +224,20 @@ function RegistrationForm() {
               className="form__input"
               type="password"
               value={confirmPassword}
-              onChange={(e) => InputChange(e)}
+              onChange={e => onChange(e)}
               id="confirmPassword"
             />
           </div>
         </div>
         <div class="footer">
-          <button onClick={register} type="submit" class="btn">
+          <button type="submit" class="btn">
             Registrarse
           </button>
         </div>
-      </div>
+      </form>
       <Footer />
     </div>
   );
-}
+};
 
 export default RegistrationForm;

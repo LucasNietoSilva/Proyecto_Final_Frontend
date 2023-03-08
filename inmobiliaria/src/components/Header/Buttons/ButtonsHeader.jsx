@@ -1,6 +1,7 @@
 import React from "react";
 import "./ButtonsHeader.css";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function ButtonsHeader() {
   const navigate = useNavigate();
@@ -13,14 +14,28 @@ function ButtonsHeader() {
     e.preventDefault();
     navigate("/register");
   };
+  const auth = localStorage.getItem('user');
+  const logout = ()=>{
+    localStorage.clear();
+    navigate("/login");
+  } 
+
   return (
     <div className="container-buttons">
+
+      
       <button type="button" onClick={login}>
         INICIAR SESION
       </button>
       <button type="button" onClick={register}>
         REGISTRARSE
       </button>
+      
+      <button type="button" onClick={logout}>
+        CERRAR SESIÓN
+      </button>
+  
+     
     </div>
   );
 }
