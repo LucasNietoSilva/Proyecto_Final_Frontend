@@ -5,12 +5,21 @@ import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Register from "./components/Registrer/RegistrationForm";
-import Error from "./components/Error/Error";
+import ErrorPage from "./Error-page";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: (
+      <>
+        <Header />
+        <ErrorPage />
+        <Footer />
+      </>
+    ),
   },
   {
     path: "/login",
@@ -19,11 +28,7 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
-  },
-  {
-    path: "/error",
-    element: <Error />,
-  },
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
