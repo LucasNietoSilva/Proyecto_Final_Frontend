@@ -5,11 +5,16 @@ import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Register from "./components/Registrer/RegistrationForm";
+import Infoviviendas from "./components/Main/cuadradito/Info_viviendas/Infoviviendas";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/buscar/:id",
+    element: <Infoviviendas />,
   },
   {
     path: "/login",

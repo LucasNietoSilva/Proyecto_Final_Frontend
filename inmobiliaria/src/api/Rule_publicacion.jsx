@@ -1,14 +1,14 @@
 import API from "./Rule_API";
-//consume la info para enviar al front
 
-export const getPublicaciones = async () => {
-  let url = "/api/publicaciones";
+export const getBuscarPub = async (id) => {
+  let url = `/api/buscar/${id}`;
 
   return await API.get(url)
     .then((response) => {
-      return response.data; //array de objetos es el data
+      return response.data;
     })
     .catch((error) => {
       throw error.response.data.error || "Error procesando la solicitud";
     });
 };
+

@@ -1,0 +1,103 @@
+#container-father {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+}
+
+.container_img_vivienda {
+  position: relative;
+  width: 50%;
+  height: auto;
+}
+
+.info-precio-vivienda {
+  position: absolute;
+  width: 20%;
+  height: 10%;
+  right: 100px;
+  top: 40px;
+  border-radius: 5px;
+  background-color: #607d8b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  color: #ffffff;
+}
+
+.container_info_vivienda {
+  width: 50%;
+  height: auto;
+}
+
+.infoviviendas-ul > li {
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+.span-li {
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.container_caracteristicas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Oswald";
+}
+
+
+.infoviviendas-ul {
+  color: #000000;
+  font-size: x-large;
+  list-style: none;
+}
+
+.container_map_vivienda {
+  width: 50%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container_descripcion {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  font-family: "Oswald";
+  border-radius: 10px;
+    box-shadow:
+    inset 0 -3em 3em rgba(0,0,0,0.1),
+          0 0  0 2px rgb(255,255,255),
+          0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+
+.container_consultas_vivienda {
+  width: 50%;
+  height: auto;
+}
+
+.container-form {
+  width: 90%;
+  height: 60%;
+  border-radius: 10px;
+    box-shadow:
+    inset 0 -3em 3em rgba(0,0,0,0.1),
+          0 0  0 2px rgb(255,255,255),
+          0.3em 0.3em 1em rgba(0,0,0,0.3);
+  background-color: #726e6e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: small;
+  font-family: "Oswald";
+}

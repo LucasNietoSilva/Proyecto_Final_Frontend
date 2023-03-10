@@ -13,12 +13,12 @@ function ButtonsHeader() {
     e.preventDefault();
     navigate("/register");
   };
-  return (
+  return ( 
     <div className="container-buttons">
-      <button type="button" onClick={login}>
+      <button className="button-header"  type="button" onClick={login}>
         INICIAR SESION
       </button>
-      <button type="button" onClick={register}>
+      <button className="button-header"  type="button" onClick={register}>
         REGISTRARSE
       </button>
     </div>
