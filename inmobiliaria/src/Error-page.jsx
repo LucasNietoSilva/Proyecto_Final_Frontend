@@ -8,7 +8,7 @@ export default function ErrorPage() {
   return (
     <div className="cont-page">
       <div id="error-page">
-        <h1 className="titulo-error">Oops!</h1>
+        <h1 className="titulo-error">¡Oops!</h1>
         <p className="p-error">
           ...parece que la página que buscas no existe...
         </p>

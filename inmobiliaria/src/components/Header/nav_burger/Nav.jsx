@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./nav.css";
+import { useNavigate } from "react-router-dom";
 
 function Nav() {
   const [menu, setMenu] = useState(false);
@@ -43,8 +44,8 @@ function Nav() {
             Contacto
           </a>
         </li>
-        <li className="nav-li">
-          <a href="#">Administrar</a>
+        <li>
+          <a href="/admin">Administrar</a>
         </li>
         <div class="red-social-burger">
           <div class="red-social-btn">

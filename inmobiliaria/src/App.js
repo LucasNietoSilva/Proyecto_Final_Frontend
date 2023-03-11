@@ -4,7 +4,10 @@ import Footer from "./components/Footer/Footer";
 import Filter from "./components/Main/filter/Filter";
 import { useEffect, useState } from "react";
 import { getPublicaciones } from "./api/Rule_info";
+import { Navigate, Router, Routes, Route } from "react-router-dom";
 /* import { filtrarPublicaciones } from "./api/Rule_filter"; */
+import Login from "./components/Login/Login";
+import RegistrationForm from "./components/Registrer/RegistrationForm";
 
 function App() {
   const [arrayPublicaciones, setArrayPublicaciones] = useState([]);
@@ -79,6 +82,37 @@ function App() {
     return filterDormitorios.indexOf(item) === index;
   });
 
+  /////////
+
+
+
+  //  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  //  const setAuth = (boolean) => {
+  //    setIsAuthenticated(boolean);
+  //  };
+
+  //  async function isAuth() {
+  //    try {
+  //      const response = await fetch("http://localhost:3000/auth/verified", {
+  //        method: "POST",
+  //        headers: { token: localStorage.token },
+  //      });
+
+  //      const parseRes = await response.json();
+
+  //      console.log(parseRes);
+  //      parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false);
+  //    } catch (err) {
+  //      console.error(err.message);
+  //    }
+  //  }
+
+  //  useEffect(() => {
+  //    isAuth();
+  //  });
+
+
   return (
     <>
       <Header />
@@ -92,6 +126,30 @@ function App() {
       />
       <Lista listaPublicaciones={arrayPublicaciones} />
       <Footer />
+      {/* <Routes>
+         <Route
+          exact
+          path="/login"
+          render={(props) =>
+            !isAuthenticated ? (
+              <Login {...props} setAuth={setAuth} />
+            ) : (
+              <Navigate to="/" />
+            )
+          }
+        />
+        <Route
+          exact
+          path="/register"
+          render={(props) =>
+            !isAuthenticated ? (
+              <RegistrationForm {...props} setAuth={setAuth} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        /> 
+      </Routes> */}
     </>
   );
 }

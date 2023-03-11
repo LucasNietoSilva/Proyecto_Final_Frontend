@@ -9,6 +9,8 @@ import Infoviviendas from "./components/Main/cuadradito/Info_viviendas/Infovivie
 import ErrorPage from "./Error-page";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import { AuthProvider } from "./authProvider";
+import AddForm from "./components/Add/AddForm";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +26,17 @@ const router = createBrowserRouter([
   },
   {
     path: "/buscar/:id",
-    element: <Infoviviendas />,
+    element: <Infoviviendas />
+  }
+  {
+    path: "/admin",
+    element: (
+      <>
+        <Header />
+        <AddForm />
+        <Footer />
+      </>
+    ),
   },
   {
     path: "/login",
@@ -33,12 +45,14 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
-  }
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <AuthProvider>
     <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

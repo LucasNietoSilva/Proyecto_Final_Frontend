@@ -10,7 +10,6 @@ import { toast } from "react-toastify";
 //   const [firstName, setFirstName] = useState(null);
 //   const [lastName, setLastName] = useState(null);
 //   const [date, setDate] = useState(null);
-//   const [departamento, setDepartamento] = useState(null);
 //   const [email, setEmail] = useState(null);
 //   const [password, setPassword] = useState(null);
 //   const [confirmPassword, setConfirmPassword] = useState(null);
@@ -60,16 +59,14 @@ import { toast } from "react-toastify";
 //     });
 // };
 
-const RegistrationForm = ({ setAuth }) => {
-
+const RegistrationForm = () => {
   const [inputs, setInputs] = useState({
-    firstName: "",
-    lastName: "",
+    nombre: "",
+    apellido: "",
     email: "",
-    date: "",
-    departamento: "",
+    fecha_nacimiento: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
 
   const captureSelect = (e) => {
@@ -77,42 +74,39 @@ const RegistrationForm = ({ setAuth }) => {
     console.log(e.target.value);
   };
 
-  const { firstName, lastName, email, date, password, confirmPassword } = inputs;
+  const { nombre, apellido, email, fecha_nacimiento, password, confirmPassword } =
+    inputs;
+
+  const [departamento, setDepartamento] = useState(null);
 
   const onChange = (e) => {
     setInputs({ ...inputs, [e.target.id]: e.target.value });
     console.log(inputs);
   };
 
-  const [departamento, setDepartamento] = useState(null);
-
   const onSubmitForm = async (e) => {
     e.preventDefault();
 
     try {
-      const body = { firstName, lastName, email, date, departamento, password, confirmPassword };
+      const body = {
+        nombre,
+        apellido,
+        email,
+        fecha_nacimiento,
+        departamento,
+        password,
+        confirmPassword,
+      };
+      console.log(body);
 
-      const response = await fetch("http://localhost:3000/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-
-      const parseResponse = await response.json();
-
-      if (parseResponse.token) {
-        localStorage.setItem("token", parseResponse.token);
-
-        setAuth(true);
-        toast.success(
-          `Gracias por registrarte, ${parseResponse.name
-            .charAt(0)
-            .toUpperCase()}${parseResponse.name.substring(1)}!`
-        );
-      } else {
-        setAuth(false);
-        toast.error(parseResponse);
-      }
+      await registrarUsuario(body)
+        .then((response) => {
+          alert("Se ha registrado correctamente.");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+     
     } catch (err) {
       console.error(err.message);
     }
@@ -124,26 +118,26 @@ const RegistrationForm = ({ setAuth }) => {
       <form className="form" onSubmit={onSubmitForm}>
         <div className="form-body">
           <div className="username label-input">
-            <label className="form__label" for="firstName">
+            <label className="form__label" for="nombre">
               Nombre:
             </label>
             <input
               className="form__input"
               type="text"
-              value={firstName}
-              onChange={e => onChange(e)}
-              id="firstName"
+              value={nombre}
+              onChange={(e) => onChange(e)}
+              id="nombre"
             />
           </div>
           <div className="lastname label-input">
-            <label className="form__label" for="lastName">
+            <label className="form__label" for="apellido">
               Apellido:
             </label>
             <input
               type="text"
-              value={lastName}
-              onChange={e => onChange(e)}
-              id="lastName"
+              value={apellido}
+              onChange={(e) => onChange(e)}
+              id="apellido"
               className="form__input"
             />
           </div>
@@ -154,20 +148,20 @@ const RegistrationForm = ({ setAuth }) => {
             <input
               type="email"
               value={email}
-              onChange={e => onChange(e)}
+              onChange={(e) => onChange(e)}
               id="email"
               className="form__input"
             />
           </div>
           <div className="date label-input">
-            <label className="form__label" for="date">
+            <label className="form__label" for="fecha_nacimiento">
               Fecha de Nacimiento:
             </label>
             <input
               type="date"
-              value={date}
-              onChange={e => onChange(e)}
-              id="date"
+              value={fecha_nacimiento}
+              onChange={(e) => onChange(e)}
+              id="fecha_nacimiento"
               className="form__input fecha"
             />
           </div>
@@ -210,7 +204,7 @@ const RegistrationForm = ({ setAuth }) => {
               className="form__input"
               type="password"
               value={password}
-              onChange={e => onChange(e)}
+              onChange={(e) => onChange(e)}
               id="password"
             />
           </div>
@@ -222,7 +216,7 @@ const RegistrationForm = ({ setAuth }) => {
               className="form__input"
               type="password"
               value={confirmPassword}
-              onChange={e => onChange(e)}
+              onChange={(e) => onChange(e)}
               id="confirmPassword"
             />
           </div>
