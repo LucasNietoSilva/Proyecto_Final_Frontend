@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-button {
+.button-header {
   margin: 5px;
   width: 40%;
   height: 30%;
@@ -22,7 +22,7 @@ button {
   letter-spacing: 1px;
 }
 
-button:hover {
+.button-header:hover {
   transform: scale(0.9);
   transition: transform 0.2s;
   color: violet;

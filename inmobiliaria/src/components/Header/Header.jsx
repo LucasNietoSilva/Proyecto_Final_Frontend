@@ -3,25 +3,23 @@ import ButtonsHeader from "./Buttons/ButtonsHeader";
 import "./header.css";
 import Nav from "./nav_burger/Nav";
 import NavList from "./nav_list/NavList";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <>
       <header>
         <div className="image">
-          <img src="./imgs/LogoSenpai_Inm_Blanco.png" alt="logo" />
+          <Link to="/">
+            <img src="./imgs/LogoSenpai_Inm_Blanco.png" alt="logo" />
+          </Link>
         </div>
-        {/* <div className="container-nav">
-          <NavList />
-        </div> */}
         <ButtonsHeader />
         <div className="container-nav">
-          
           <Nav />
         </div>
       </header>
     </>
   );
 }
-
 export default Header;

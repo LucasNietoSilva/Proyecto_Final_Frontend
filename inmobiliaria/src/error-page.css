@@ -1,0 +1,35 @@
+.cont-page{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.titulo-error{
+    font-size: 10rem;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+}
+
+
+.p-error{
+    font-size: 4rem;
+    color: aliceblue;
+    padding-top: 50px;
+}
+
+.regreso{
+    font-size: 2.5rem;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+#click{
+    font-size: 3rem;
+    color:brown;
+}
