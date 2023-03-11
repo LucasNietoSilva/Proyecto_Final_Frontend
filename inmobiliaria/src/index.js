@@ -8,6 +8,7 @@ import Register from "./components/Registrer/RegistrationForm";
 import ErrorPage from "./Error-page";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import AddForm from "./components/Add/AddForm";
 
 const router = createBrowserRouter([
   {
@@ -22,13 +23,23 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/admin",
+    element: (
+      <>
+        <Header />
+        <AddForm />
+        <Footer />
+      </>
+    ),
+  },
+  {
     path: "/login",
     element: <Login />,
   },
   {
     path: "/register",
     element: <Register />,
-  }
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
