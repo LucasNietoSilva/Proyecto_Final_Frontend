@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getBuscarPub } from "../../../../api/Rule_publicacion";
 import Carousel from "./Carousel/Carousel";
+import Consultas from "./Consultas/Consultas";
 
 function Infoviviendas() {
   const { id } = useParams();
@@ -38,8 +39,6 @@ function Infoviviendas() {
         <div className="container_info_vivienda">
           <div className="container_caracteristicas">
             <h1>CARACTERISTICAS</h1>
-          </div>
-          <div className="container_info">
             <ul className="infoviviendas-ul">
               <li>
                 Tipo de Opreación:{" "}
@@ -63,17 +62,12 @@ function Infoviviendas() {
               <li>
                 Baños: <span className="span-li"> {vivienda[0]?.baños} </span>
               </li>
-              <li>
-                Otros: <span className="span-li"> {vivienda[0]?.otros} </span>
-              </li>
             </ul>
           </div>
         </div>
         <div className="container_map_vivienda">
           <div className="container_descripcion">
-            {/* <h1>DESCPRIPCIÓN</h1>
-            <p>{vivienda[0]?.descripcion}</p>
-            <hr /> */}
+
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9899.063366874743!2d-56.16469768042225!3d-34.92092926047255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959f8112546fcd5b%3A0xc567be2a177df913!2sSenpai%20Academy!5e0!3m2!1ses!2sbr!4v1678408110578!5m2!1ses!2sbr"
               width="600"
@@ -85,14 +79,7 @@ function Infoviviendas() {
           </div>
         </div>
         <div className="container_consultas_vivienda">
-          <div className="container-form">
-            <h1>Preguntanos sobre este inmueble..</h1>
-            <div className="container-inputs">
-              <input type="text" placeholder="Nombre y Apellido"/>
-              <input type="text" placeholder="Direccion de Email"/>
-            </div>
-            <input type="text" placeholder="Ingrese su consulta" />
-          </div>
+          <Consultas />
         </div>
       </div>
       <Footer />

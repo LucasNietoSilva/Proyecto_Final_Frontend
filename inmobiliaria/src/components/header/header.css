@@ -47,7 +47,6 @@ header {
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     font-family: "Oswald";
-    letter-spacing: 1px;
   }

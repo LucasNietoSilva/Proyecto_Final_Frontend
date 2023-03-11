@@ -62,8 +62,6 @@ import { toast } from "react-toastify";
 
 const RegistrationForm = ({ setAuth }) => {
 
-  
-
   const [inputs, setInputs] = useState({
     firstName: "",
     lastName: "",

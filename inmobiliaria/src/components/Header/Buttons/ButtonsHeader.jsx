@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function ButtonsHeader() {
-  
   const navigate = useNavigate();
   const login = (e) => {
     e.preventDefault();
@@ -29,8 +28,7 @@ function ButtonsHeader() {
       <button className="button-header" type="button" onClick={register}>
         REGISTRARSE
       </button>
-
-      <button type="button" onClick={logout}>
+      <button className="button-header" type="button" onClick={logout}>
         CERRAR SESIÓN
       </button>
     </div>

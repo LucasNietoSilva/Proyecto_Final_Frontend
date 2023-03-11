@@ -35,7 +35,7 @@ function Footer() {
           <div className="logofooter">
             <Link to="/">
               <img
-                src="./imgs/LogoSenpai_Inm_Blanco.png"
+                src="/imgs/LogoSenpai_Inm_Blanco.png"
                 alt="Senpai Academy"
                 className="img-logo-footer"
               />
