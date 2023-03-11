@@ -4,15 +4,6 @@ import Header from "../Header/Header";
 import { login } from "../../api/Rule_auth";
 import { Navigate, useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
-import { toast } from "react-toastify";
-
-// function Login() {
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [logueado, setLogueado] = useState("false");
-  // const [body, setBody] = useState({email: '', password: ''});
-
-  
 
   const Login = ({setAuth}) => {
     const enter = useNavigate();
@@ -30,31 +21,25 @@ import { toast } from "react-toastify";
 
     const onSubmitForm = async(e) => {
         e.preventDefault();
-        try {
-            const body = {email, password};
-            const response = await fetch("http://localhost:3000/login",
-                {
-                    method: "POST",
-                    headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify(body)
-                }
-            );
-                const parseRes = await response.json();
-
-                if(parseRes.token) {
-                    localStorage.setItem('token', parseRes.token);
-                    setAuth(true);
-                    toast.success(`Bienvenido, ${parseRes.name.charAt(0).toUpperCase()}${parseRes.name.substring(1,)}!`)
-                } else {
-                    setAuth(false);
-                    toast.error(parseRes);
-                }
-              
+         try {
+             const body = {email, password};
+             console.log(body);
+             await login(body)
+             .then((response) => {
+               alert("Se ha logueado correctamente.");
+             })
+             .catch((error) => {
+               console.log(error);
+             });
+     
         } catch (err) {
             console.error(err.message);
         }
+        
+       
     };
 
+    
 
   return (
     <>
@@ -68,7 +53,7 @@ import { toast } from "react-toastify";
             type="email"
             name="email"
             value={email}
-            pattern=".+@globex\.com"
+            // pattern=".+@globex\.com"
             placeholder="Email..."
             required
             onChange={e => onChange(e)}
@@ -89,9 +74,6 @@ import { toast } from "react-toastify";
             Ingresar
           </button>
 
-          <p>
-            <a href="#">¿Olvidaste tu contraseña?</a>
-          </p>
           <p className="borde-blanco">
             ¿Eres nuevo?
             <a href="/register" id="registrate">

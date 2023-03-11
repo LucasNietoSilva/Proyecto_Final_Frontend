@@ -3,7 +3,7 @@ import "./ButtonsHeader.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-function ButtonsHeader() {
+function ButtonsHeader({ setAuth }) {
   const navigate = useNavigate();
   const login = (e) => {
     e.preventDefault();
@@ -14,11 +14,15 @@ function ButtonsHeader() {
     e.preventDefault();
     navigate("/register");
   };
+
   const auth = localStorage.getItem('user');
-  const logout = ()=>{
-    localStorage.clear();
-    navigate("/login");
-  } 
+
+  const logout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem('token');
+    setAuth(false);
+};
+
 
   return (
     <div className="container-buttons">
@@ -31,7 +35,7 @@ function ButtonsHeader() {
         REGISTRARSE
       </button>
       
-      <button type="button" onClick={logout}>
+      <button type="button" onClick={e => logout(e)}>
         CERRAR SESIÓN
       </button>
   
