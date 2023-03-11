@@ -9,3 +9,13 @@
     gap: 10px;
     margin: 30px 0px;
 }
+
+#mensaje-lista-vacia{
+    font-size: 50px;
+    color:aliceblue;
+    font-family: "Oswald";
+    display: flex;
+    justify-content: center;
+    padding-bottom: 11%;
+    padding-top: 11%;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import "./footer.css";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -32,7 +33,13 @@ function Footer() {
             </ul>
           </div>
           <div className="logofooter">
-            <img src="/imgs/LogoSenpai_Inm_Blanco.png" alt="Senpai Academy" className="img-logo-footer"/>
+            <Link to="/">
+              <img
+                src="./imgs/LogoSenpai_Inm_Blanco.png"
+                alt="Senpai Academy"
+                className="img-logo-footer"
+              />
+            </Link>
           </div>
           <div class="red-social">
             <div class="red-social-btn">
