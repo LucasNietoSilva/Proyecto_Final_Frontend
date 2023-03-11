@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import "./nav.css";
+import { useNavigate } from "react-router-dom";
 
 function Nav() {
   const [menu, setMenu] = useState(false);
-  const [animationBurger, setAnimationBurger] = useState(false)
- 
+  const [animationBurger, setAnimationBurger] = useState(false);
 
   const animationNavbar = () => {
-    setAnimationBurger (!animationBurger)
+    setAnimationBurger(!animationBurger);
     setMenu(!menu);
-  }
-
+  };
 
   return (
     <>
-      <div className={`burger ${animationBurger ? "open" : ""}`} onClick={animationNavbar}>
+      <div
+        className={`burger ${animationBurger ? "open" : ""}`}
+        onClick={animationNavbar}
+      >
         <span></span>
         <span></span>
         <span></span>
@@ -22,7 +24,7 @@ function Nav() {
       </div>
       <nav className={`nav ${menu ? "nav-open" : ""}`} id="nav">
         <li>
-          <a href="#">Inicio</a>
+          <a href="/">Inicio</a>
         </li>
         <li>
           <a href="#">Empresa</a>
@@ -37,7 +39,7 @@ function Nav() {
           <a href="#">Contacto</a>
         </li>
         <li>
-          <a href="#">Administrar</a>
+          <a href="/admin">Administrar</a>
         </li>
       </nav>
     </>
