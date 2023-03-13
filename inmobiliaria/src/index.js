@@ -27,7 +27,7 @@ const router = createBrowserRouter([
   {
     path: "/buscar/:id",
     element: <Infoviviendas />
-  }
+  },
   {
     path: "/admin",
     element: (
