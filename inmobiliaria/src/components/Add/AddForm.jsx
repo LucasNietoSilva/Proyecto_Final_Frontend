@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./addForm.css";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+/* import { toast } from "react-toastify"; */
 import { registrarPublicacion } from "../../api/Rule_add";
 /* import { agregarImg } from "../../api/Rule_add"; */
 
 //ESTADOS
 const AddForm = ({ setAuth }) => {
+  const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     tipo: "",
     estado: "",
@@ -48,21 +49,34 @@ const AddForm = ({ setAuth }) => {
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
-    let formData = new FormData();
+    /*     let formData = new FormData();
     formData.append("image", image);
     formData.append("tipo", tipo);
     formData.append("estado", estado);
     formData.append("dormitorios", dormitorios);
     formData.append("barrio", barrio);
     formData.append("departamento", departamento);
-    formData.append("precio", precio);
+    formData.append("precio", precio); */
     try {
-      registrarPublicacion(formData).then((item) => {
+      const body = {
+        tipo,
+        estado,
+        dormitorios,
+        barrio,
+        departamento,
+        precio,
+      };
+      registrarPublicacion(body).then((item) => {
+        console.log(body);
+      });
+      /*       registrarPublicacion(formData).then((item) => {
         console.log(formData);
       });
+     */
     } catch (err) {
       console.error(err.message);
     }
+    navigate("/");
   };
 
   return (
