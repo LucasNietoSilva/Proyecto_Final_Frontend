@@ -5,6 +5,7 @@ import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Register from "./components/Registrer/RegistrationForm";
+import Infoviviendas from "./components/Main/cuadradito/Info_viviendas/Infoviviendas";
 import ErrorPage from "./Error-page";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
         <Footer />
       </>
     ),
+  },
+  {
+    path: "/buscar/:id",
+    element: <Infoviviendas />
   },
   {
     path: "/admin",

@@ -3,9 +3,9 @@ import API from "./Rule_API";
 
 export const getPublicaciones = async () => {
   let url = "/api/publicaciones";
+
   return await API.get(url)
     .then((response) => {
-      console.log(response);
       return response.data; //array de objetos es el data
     })
     .catch((error) => {

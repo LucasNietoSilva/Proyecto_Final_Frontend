@@ -2,7 +2,6 @@ import React from "react";
 import ButtonsHeader from "./Buttons/ButtonsHeader";
 import "./header.css";
 import Nav from "./nav_burger/Nav";
-import NavList from "./nav_list/NavList";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -11,7 +10,11 @@ function Header() {
       <header>
         <div className="image">
           <Link to="/">
-            <img src="./imgs/LogoSenpai_Inm_Blanco.png" alt="logo" />
+            <img
+              className="img-header"
+              src="/imgs/LogoSenpai_Inm_Blanco.png"
+              alt="logo"
+            />
           </Link>
         </div>
         <ButtonsHeader />

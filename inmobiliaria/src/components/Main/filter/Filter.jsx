@@ -77,8 +77,7 @@ function Filter(props) {
         options={options}
         closeMenuOnSelect={false}
         components={animatedComponents}
-        className="basic-multi-select select-class"
-        classNamePrefix="select"
+        className="select"
         placeholder="Dormitorios"
         styles={{
           control: (baseStyles, state) => ({
@@ -89,7 +88,7 @@ function Filter(props) {
         onChange={handleSelectChange}
       />
       <button
-        className="boton-buscar"
+        className="button-buscar"
         onClick={() => {
           props.filtrar(depto, inmueble, estado, dormitorios);
           console.log(dormitorios);
@@ -98,12 +97,12 @@ function Filter(props) {
         BUSCAR
       </button>
       <button
-        className="boton-buscar"
+        className="button-buscar"
         onClick={() => {
           props.resetear();
         }}
       >
-        X
+        LIMPIAR
       </button>
     </div>
   );

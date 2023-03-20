@@ -9,21 +9,21 @@ function Footer() {
         <div className="cont-links-logo-conocenos">
           <div className="links">
             <ul className="List-li">
-              <li>
+              <li className="list">
                 {" "}
                 <a href="https://senpaiacademy.com/" target="_blank">
                   {" "}
                   EMPRESA{" "}
                 </a>{" "}
               </li>
-              <li>
+              <li className="list">
                 {" "}
                 <a href="https://senpaiacademy.com/blog/" target="_blank">
                   {" "}
                   SERVICIOS{" "}
                 </a>{" "}
               </li>
-              <li>
+              <li className="list">
                 {" "}
                 <a href="https://senpaiacademy.com/#contact" target="_blank">
                   {" "}
@@ -33,11 +33,13 @@ function Footer() {
             </ul>
           </div>
           <div className="logofooter">
-            
-          <Link to="/">
-          <img src="./imgs/LogoSenpai_Inm_Blanco.png" alt="Senpai Academy" className="img-logo"/>
-          </Link>
-            
+            <Link to="/">
+              <img
+                src="/imgs/LogoSenpai_Inm_Blanco.png"
+                alt="Senpai Academy"
+                className="img-logo-footer"
+              />
+            </Link>
           </div>
           <div class="red-social">
             <div class="red-social-btn">
@@ -52,7 +54,7 @@ function Footer() {
                   height="30"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
-                  stroke="#673ab7"
+                  stroke="#ffffff"
                   fill="none"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -72,7 +74,7 @@ function Footer() {
                   height="30"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
-                  stroke="#673ab7"
+                  stroke="#ffffff"
                   fill="none"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -91,7 +93,7 @@ function Footer() {
                   height="30"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
-                  stroke="#673ab7"
+                  stroke="#ffffff"
                   fill="none"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -111,7 +113,7 @@ function Footer() {
                   height="30"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
-                  stroke="#673ab7"
+                  stroke="#ffffff"
                   fill="none"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -124,9 +126,8 @@ function Footer() {
             </div>
           </div>
         </div>
-        <hr />
         <div className="Copy-Right">
-          <p>
+          <p className="copy-right-footer">
             &#169; 2022 Senpai Real State. Todos los derechos son reservados.
           </p>
         </div>

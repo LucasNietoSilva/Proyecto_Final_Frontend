@@ -14,6 +14,11 @@ function ButtonsHeader({ setAuth }) {
     e.preventDefault();
     navigate("/register");
   };
+  // const auth = localStorage.getItem("user");
+  // const logout = () => {
+  //   localStorage.clear();
+  //   navigate("/login");
+  // };
 
   const auth = localStorage.getItem("user");
 
@@ -25,16 +30,15 @@ function ButtonsHeader({ setAuth }) {
 
   return (
     <div className="container-buttons">
-      <button type="button" onClick={login}>
+      <button className="button-header" type="button" onClick={login}>
         INICIAR SESION
       </button>
-      <button type="button" onClick={register}>
+      <button className="button-header" type="button" onClick={register}>
         REGISTRARSE
       </button>
-
-      {/*       <button type="button" onClick={(e) => logout(e)}>
+      <button className="button-header" type="button" onClick={logout}>
         CERRAR SESIÓN
-      </button> */}
+      </button>
     </div>
   );
 }

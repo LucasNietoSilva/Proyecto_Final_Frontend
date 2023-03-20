@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./cuadradito.css";
 
 function Cuadradito(props) {
@@ -13,8 +14,15 @@ function Cuadradito(props) {
     }
   };
 
+  const viviendas = useNavigate();
+    const vivienda = (e) => {
+      e.preventDefault();
+      console.log("has hecho click en vivienda");
+      viviendas(`/buscar/${props.propiedad.propiedad_id}`)
+    };
+
   return (
-    <div className="card">
+    <div className="card" onClick={vivienda}>
       <div className="img">
         <div className="estado">{estado(props.propiedad.estado)}</div>
         <img
@@ -32,7 +40,7 @@ function Cuadradito(props) {
         <div className="info-right">
           <h5>Dormitorios: {props.propiedad.dormitorios}</h5>
           <h5>{props.propiedad.barrio}</h5>
-          <h5>USD {props.propiedad.precio}</h5>
+          <label id="info-precio">U$D {props.propiedad.precio}</label>
         </div>
       </div>
     </div>

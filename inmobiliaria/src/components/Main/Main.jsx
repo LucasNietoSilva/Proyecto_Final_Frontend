@@ -1,6 +1,7 @@
 import React from "react";
 import "./main.css";
 import Cuadradito from "./cuadradito/Cuadradito";
+import Auto_carousel from "./Auto_carousel/Auto_carousel";
 
 function Lista(props) {
   const msjLiVacia =
@@ -8,6 +9,7 @@ function Lista(props) {
 
   return (
     <div>
+      {/* <Auto_carousel /> */}
       {props.listaPublicaciones.length === 0 ? (
         <p id="mensaje-lista-vacia">{msjLiVacia}</p>
       ) : (
